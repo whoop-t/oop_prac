@@ -19,6 +19,9 @@ class Animal {
   }
 }
 
+// The cat class is inheriting the name property from the Animal class
+// Super is used to call the constructor in the parent class
+// Pass in the property to super to be used in the parent constructor
 class Cat extends Animal {
   constructor(name, size, age) {
     super(name);
@@ -29,6 +32,12 @@ class Cat extends Animal {
   If you want to chain methods, you need to return this.
   This is referring to the object itself, in this case the specific cat so then the next method can be called
   */
+  // * Polymorphism in js
+  /*
+  This method is overriding the noise method on Animal
+  When the method is called, it will search the prototype chain
+  The first instance of the noise method will be called.
+ */
   noise() {
     console.log(
       `This ${this.size} cat, is ${this.age} yrs old and named ${this.name}, lets out a meow!`
@@ -47,8 +56,8 @@ class Cat extends Animal {
 }
 
 const a = new Animal('Random Animal');
-const c = new Cat('Donnie', 'medium', 1.5);
-const c2 = new Cat('Kiki', 'small', 7);
+const donnie = new Cat('Donnie', 'medium', 1.5);
+const kiki = new Cat('Kiki', 'small', 7);
 a.noise();
-c.noise().scratch('angry');
-c2.noise().scratch('happy');
+donnie.noise().scratch('angry');
+kiki.noise().scratch('happy');
